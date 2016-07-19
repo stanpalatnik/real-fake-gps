@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Real Fake GPS</string>
+    <string name="action_settings">Settings</string>
+    <string name="enter_fake_coordinates">Enter fake coordinates</string>
+    <string name="enter_latitude">Enter latitude</string>
+    <string name="enter_longitude">Enter longitude</string>
+    <string name="invalid_latitude">Invalid Latitude</string>
+    <string name="invalid_longitude">Invalid Longitude</string>
+    <string name="required_latitude">Latitude Required</string>
+    <string name="required_longitude">Longitude Required</string>
+</resources>
