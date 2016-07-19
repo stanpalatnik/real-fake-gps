@@ -60,6 +60,24 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <View style="@style/Divider"/>
+
+        <CheckBox
+            android:text="Random Movement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/email_login_form"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_marginTop="46dp"
+            android:id="@+id/checkBox"
+            android:contentDescription="Check to have gps slightly move around your chosen coordinates" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.design.widget.TextInputLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

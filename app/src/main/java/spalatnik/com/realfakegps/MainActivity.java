@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import org.apache.commons.lang3.StringUtils;
@@ -19,6 +20,7 @@ import spalatnik.com.realfakegps.util.FakeGPS;
 public class MainActivity extends AppCompatActivity {
 
     FloatingActionButton fab;
+    CheckBox randomCheck;
     private EditText latitudeView;
     private EditText longitudeView;
     FakeGPS fakeGPS;
@@ -41,6 +43,23 @@ public class MainActivity extends AppCompatActivity {
                 if(enterFakeCoordinates()) {
                     Snackbar.make(view, "Engaging fake GPS", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
+                }
+            }
+        });
+        randomCheck = (CheckBox)findViewById(R.id.checkBox);
+        randomCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CheckBox checkBox = (CheckBox)view;
+                if(checkBox.isChecked()){
+                    Snackbar.make(view, "Enabling random movement", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    fakeGPS.enableRandom();
+                }
+                else {
+                    Snackbar.make(view, "Disabling random movement", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    fakeGPS.disableRandom();
                 }
             }
         });
