@@ -20,8 +20,15 @@
         </activity>
     </application>
 
-    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.INSTALL_LOCATION_PROVIDER" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+
+    <uses-feature android:name="android.hardware.location.network" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
 
 </manifest>

@@ -14,20 +14,17 @@ import java.util.Random;
 
 public class FakeGPS {
 
-    final Context context;
-    final ContentResolver contentResolver;
-    final LocationManager locationManager;
+    private final Context context;
+    private final ContentResolver contentResolver;
+    private final LocationManager locationManager;
     private final static Random randomizer = new Random();
-    final String provider;
 
     public FakeGPS(Context context, ContentResolver contentResolver) {
         this.context = context;
         this.contentResolver = contentResolver;
         this.locationManager = (LocationManager) context
                 .getSystemService(Context.LOCATION_SERVICE);
-        Criteria criteria = new Criteria();
-        criteria.setAccuracy( Criteria.ACCURACY_FINE );
-        provider = locationManager.getBestProvider( criteria, true );
+        this.locationManager.addTestProvider(LocationManager.GPS_PROVIDER, false, false, false, false, true, true, true, Criteria.POWER_LOW, Criteria.ACCURACY_FINE);
     }
 
     private int setMockLocationSettings(ContentResolver contentResolver) {
@@ -69,7 +66,7 @@ public class FakeGPS {
         /* every time you mock location, you should use these code */
         int value = setMockLocationSettings(contentResolver);//toggle ALLOW_MOCK_LOCATION on
         try {
-            locationManager.setTestProviderLocation(provider, fake_location);
+            locationManager.setTestProviderLocation(LocationManager.GPS_PROVIDER, fake_location);
         } catch (SecurityException e) {
             e.printStackTrace();
         } finally {
