@@ -6,6 +6,7 @@ import android.content.Context;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.location.LocationProvider;
 import android.provider.Settings;
 import android.util.Log;
 
@@ -73,11 +74,7 @@ public class FakeGPS {
         /* every time you mock location, you should use these code */
         int value = setMockLocationSettings(contentResolver);//toggle ALLOW_MOCK_LOCATION on
         try {
-            //locationManager.addTestProvider("gps", true, true, false,
-              //      false, true, true, true, 3, 1);
-           // locationManager.setTestProviderEnabled("gps", true);
-            locationManager.setTestProviderLocation("gps", fake_location);
-           // locationManager.removeTestProvider("gps");
+            locationManager.setTestProviderLocation(LocationManager.GPS_PROVIDER, fake_location);
         } catch (SecurityException e) {
             e.printStackTrace();
         } finally {
